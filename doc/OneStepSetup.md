@@ -100,7 +100,7 @@ Given that the Pi contains sensitive information like your home wifi password an
 - Try `sudo -i` and then run `/etc/rc.local`. The scripts are fairly resilient to restarting and not re-running previous steps, and will tell you about progress/failure.
 - If Wifi didn't come up:
   - Double-check the SSID and WIFIPASS variables in `teslausb_setup_variables.conf`, and remove `WIFI_ENABLED`, then boot the SD in your Pi to retry automatic Wifi setup.
-  - If you are using a WiFi network with a _hidden SSID_, edit `/boot/wpa_supplicant.conf.sample` and uncomment the line `scan_ssid=1` in the `network={...}` block.
+  - If you are using a WiFi network with a _hidden SSID_, edit `/boot/wpa_supplicant.conf.sample` and uncomment the line `scan_ssid=1` in the `network={...}` block. _Do not rename this file, or remove the `.sample` suffix.
   - If still no go, re-run `/etc/rc.local`
   - If all else fails, copy `/boot/wpa_supplicant.conf.sample` to `/boot/wpa_supplicant.conf` and edit out the `TEMP` variables to your desired settings.
 - Note: if you get an error about `read-only filesystem`, you may have to `sudo -i` and run `/root/bin/remountfs_rw`.
